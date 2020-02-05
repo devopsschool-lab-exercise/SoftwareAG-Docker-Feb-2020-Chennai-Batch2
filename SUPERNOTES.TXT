@@ -369,4 +369,95 @@ How to access from outside?
    63  clear
    64  docker ps
 
+=========================================================================
+LETS CONCLUDE TODAY
+=================================================
+https://www.devopsschool.com/tutorial/docker/commands/
 
+
+cp
+----------
+84  docker cp devopsschool.txt 5e9f72c88b54:/opt
+   85  docker run -d jenkins
+   86  docker ps
+   87  docker cp devopsschool.txt 404e3c50d161:/opt
+   88  docker exec 404e3c50d161 touch /opt/fff
+   89  docker exec 404e3c50d161 touch /tmp/fff
+   90  clear
+   91  docker ps
+   92  docker exec -it 404e3c50d161 /bin/bash
+   93  clear
+   94  docker ls
+   95  docker ps
+   96  ks
+   97  ls
+   98  docker exec 5e9f72c88b54 ls /opt/
+   99  rm -rf devopsschool.txt
+  100  ls
+  101  docker cp 5e9f72c88b54:/opt/devopsschool.txt .
+  102  ls
+
+
+diff
+---------
+103  history
+  104  clear
+  105  ls
+  106  docker ps
+  107  docker attach 5e9f72c88b54
+  108  clear
+  109  clear
+  110  docker ps
+  111  docker diff 5e9f72c88b54
+  112  history
+
+port
+
+ 117  docker ps
+  118  docker port 404e3c50d161
+  119  docker port 5e9f72c88b54
+  120  docker run -d -p 8080:8080 jenkins
+  121  docker ps
+  122  docker port c8c549ac53cf
+  123  history
+[root@ip-172-31-29-54 ec2-user]#
+
+
+rename
+
+126  docker run -itd --name raju ubuntu
+  127  docker ps
+  128  docker rename c8c549ac53cf dev
+  129  docker ps
+
+
+
+ASSIGNMENT -
+docker help
+Google.com
+update	Update configuration of one or more containers
+wait	Block until one or more containers stop, then print their exit codes
+
+31  clear
+  132  docker ps
+  133  docker logs c8c549ac53cf
+  134  docker logs c8c549ac53cf
+  135  docker exec c8c549ac53cf more /var/jenkins_home/secrets/initialAdminPassword
+  136  docker logs c8c549ac53cf
+ 154  docker logs c8c549ac53cf
+  155  docker logs c8c549ac53cf
+  156  c;ear
+  157  clear
+  158  docker stats
+  159  docker stats 3bda46964f13
+  160  CLEAR
+  161  clear
+  162  docker ps
+  163  ps -eaf | grep docker
+  164  docker top
+  165  clear
+  166  docker ps
+  167  docker top 3bda46964f13
+  168  clear
+  169  docker events
+  170  history
