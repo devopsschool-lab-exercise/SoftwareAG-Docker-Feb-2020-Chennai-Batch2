@@ -285,5 +285,88 @@ Key -
     PEM for LINUX - rajesh-mumbai.pem
 
 https://www.devopsschool.com/notes/docker/2019/
+=================================================================
+PID 1 is running so Your container is running.
+
+docker run ubuntu
+docker run jenkins
+-----------------------
+pull+create+start+become = RUN
+
+How to use that containers?
+=============================
+How to get inside???
+
+    exec way
+            - it execute an executables but inside a container but  
+            - with -it && shell - you can do inside a container.
+
+    attach way
+            - It attached to PID 1
+            - TO DETAHC - you can use -d
+
+
+  132  docker ps -a
+  133  docker run ubuntu
+  134  docker ps -a
+  135  docker run jenkins
+1  docker ps -a
+    2  clear
+    3  docker run ubuntu ls
+    4  docker ps -a
+    5  clear
+    6  clear
+    7  docker ps
+    8  docker exec c63057ac066a ls
+    9  docker exec c63057ac066a df
+   10  docker exec c63057ac066a ps\
+   11  docker exec c63057ac066a ps
+   12  docker ps
+   13  clear
+   14  docker ps
+   15  docker exec -it c63057ac066a /bin/bash
+   16  clear
+   17  docker ps
+   18  clear
+   19  docker ps
+   20  docker attach c63057ac066a
+   21  docker ps -a
+   22  clear
+   23  docker stop $(docker ps -a -q)
+   24  docker rm $(docker ps -a -q)
+   25  clear
+   26  ls
+   27  docker ps -a
+   28  docker run ubuntu
+   29  dockr ps
+   30  docker ps -a
+   31  docker run ubuntu ff
+   32  docker ps -a
+   33  clear
+   34  docker run ubuntu ls
+   35  docker ps -a
+   36  clear
+   37  docker run -it ubuntu /bin/bash
+   38  docker ps
+   39  docker run -itd ubuntu
+   40  docker ps
+   41  docker attach 9c4c85ed68f4
+   42  docker ps
+   43  history
+
+
+How to access from outside?
+53  docker stop $(docker ps -a -q)
+   54  docker rm $(docker ps -a -q)
+   55  clear
+   56  docker help run
+   57  clear
+   58  docker run -d -p 8080:8080 jenkins
+   59  docker ps
+   60  docker run -d -p 8080:8080 jenkins
+   61  docker ps -a
+   62  docker run -d -p 8090:8080 jenkins
+   63  clear
+   64  docker ps
 
 
