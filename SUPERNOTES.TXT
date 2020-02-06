@@ -829,13 +829,221 @@ ENTRYPOINT
 LAB - 
 https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
 
+===============
+Docker Volume
+-> Volume - -> /var/lib/docker/volumes
+-> mount -- ANY LOCATION IN THE HOST
+-> tmfs - memory
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+
+339  ls
+  340  pwd
+  341  docker run -d jenkins
+  342  ls
+  343  docker ps
+  344  docker stop a0ca537ef824
+  345  docker rm  a0ca537ef824
+  346  clear
+  347  ls
+  348  cd 34ce0c928a7f533c9c95c5bb657bb8fc3ccc8a3636431f6e7cde02a63773c4c7
+  349  ls
+  350  cd _data/
+  351  ls
+  352  clear
+  353  cd ..
+  354  cd ..
+  355  ls
+  356  docker volume
+  357  docker volume prune
+  358  ls
+  359  clear
+  360  ls
+  361  docker volume create raj
+  362  docker volume create dev
+  363  docker volume ls
+  364  ls
+  365  docker run -itd -v raj:/op/ttt ubuntu
+  366  docker exec 684e6f31c3ea2bcdafe2951bca961c585c20eb662daab524aa69d416d5c74a50 df -kh
+  367  docker exec 684e6f31c3ea2bcdafe2951bca961c585c20eb662daab524aa69d416d5c74a50 touch /op/ttt/fff
+  368  docker exec 684e6f31c3ea2bcdafe2951bca961c585c20eb662daab524aa69d416d5c74a50 ls /op/ttt/fff
+  369  ls
+  370  cd raj/
+  371  ls
+  372  cd _data/
+  373  ls
+  374  touch fsdfd
+  375  touch fsdfd fsd f s fd f ds fsdf sd
+  376  ls
+  377  docker exec 684e6f31c3ea2bcdafe2951bca961c585c20eb662daab524aa69d416d5c74a50 ls /op/ttt
+  378  docker ps
+  379  docker stop 684e6f31c3ea
+  380  docker rm 684e6f31c3ea
+  381  ls
+  382  docker run -itd -v raj:/op/ttt ubuntu
+  383  docker exec 584019b8d341350dca3d0c3066947c1836a416d1013317211f73b3548497135d ls /opt/ttr
+  384  docker exec 584019b8d341350dca3d0c3066947c1836a416d1013317211f73b3548497135d ls /opt/ttt
+  385  docker exec 584019b8d341350dca3d0c3066947c1836a416d1013317211f73b3548497135d ls /op/ttt
+  386  history
 
 
 
 
 
 
+ 387  clear
+  388  ls
+  389  cd
+  390  cd /opt/
+  391  ls
+  392  mkdir bkp
+  393  ls
+  394  docker run -itd -v /opt/bkp/:/opt/ddd ubuntu
+  395  ls
+  396  cd bkp/
+  397  ls
+  398  touch rr r r r r r r r r r rr rrrrrr
+  399  ls
+  400  docker ps
+  401  docker exec b89a8cffe1cc ls /opt/ddd
+  402  history
 
+
+====================================
+How your container should connect to LAN?
+-------------------------------------------
+Each container GET NET NS
+                  -------->
+                  BRIDGE
+                  HOST
+                  NONE
+
+
+
+  406  docker ps -a
+  407  docker stop b89a8cffe1cc
+  408  docker 584019b8d341 b89a8cffe1cc
+  409  docker stop 584019b8d341
+  410  clear
+  411  docker ps -a
+  412  docker rm b89a8cffe1cc 584019b8d341
+  413  clear
+  414  ls
+  415  docker ps -a
+  416  ifconfig
+  417  docker network ls
+  418  docker inspect e50a20e0844f
+  419  clear
+  420  ls
+  421  docker network ls
+  422  ifconfig
+  423  docker run -itd ubuntu
+  424  docker ps
+  425  docker inspect 880d03dc694b | grep -i ip
+  426  ifconfig
+  427  clear
+  428  docker run -itd ubuntu
+  429  ifconfig
+  430  docker ps
+  431  docker stop 1ce20a682d67 880d03dc694b
+  432  clear
+  433  ls
+  434  docker rm  1ce20a682d67 880d03dc694b
+  435  docker network create qa --driver=bridge
+  436  docker network ls
+  437  docker inspect f6b0ca2000ac
+  438  clear
+  439  ifconfig
+  440  docker network ls
+  441  ifconfig
+  442  docker network ls
+  443  docker run -itd --net=qa ubuntu
+  444  docker ps
+  445  docker inspect 82f053aa8590
+  446  docker inspect 82f053aa8590
+  447  docker network connect bridge 82f053aa8590
+  448  docker inspect 82f053aa8590
+  449  docker ps -a
+  450  ifconfig
+  451  history
+
+https://www.devopsschool.com/notes/docker/commands-collections/docker-networking.txt
+
+
+ 403  clear
+  404  docker network
+  405  docker network ls
+  406  docker ps -a
+  407  docker stop b89a8cffe1cc
+  408  docker 584019b8d341 b89a8cffe1cc
+  409  docker stop 584019b8d341
+  410  clear
+  411  docker ps -a
+  412  docker rm b89a8cffe1cc 584019b8d341
+  413  clear
+  414  ls
+  415  docker ps -a
+  416  ifconfig
+  417  docker network ls
+  418  docker inspect e50a20e0844f
+  419  clear
+  420  ls
+  421  docker network ls
+  422  ifconfig
+  423  docker run -itd ubuntu
+  424  docker ps
+  425  docker inspect 880d03dc694b | grep -i ip
+  426  ifconfig
+  427  clear
+  428  docker run -itd ubuntu
+  429  ifconfig
+  430  docker ps
+  431  docker stop 1ce20a682d67 880d03dc694b
+  432  clear
+  433  ls
+  434  docker rm  1ce20a682d67 880d03dc694b
+  435  docker network create qa --driver=bridge
+  436  docker network ls
+  437  docker inspect f6b0ca2000ac
+  438  clear
+  439  ifconfig
+  440  docker network ls
+  441  ifconfig
+  442  docker network ls
+  443  docker run -itd --net=qa ubuntu
+  444  docker ps
+  445  docker inspect 82f053aa8590
+  446  docker inspect 82f053aa8590
+  447  docker network connect bridge 82f053aa8590
+  448  docker inspect 82f053aa8590
+  449  docker ps -a
+  450  ifconfig
+  451  history
+  452  clear
+  453  docker network ls
+  454  docker run -itd --net=host ubuntu
+  455  docker ps
+  456  docker inspect 932981e4c7c1
+  457  docker attach st": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "7acf168e4ce944b428bda6131994e8d6d5c4c63473f854b5ebf4f2d6b9eed340",
+                    "EndpointID": "0151010ca724e28ada7d98fac547232e74aed85748d1b6a68256ce9746e405f4",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+
+  458  docker ps
+  459  docker attach 932981e4c7c1
+  460  docker network ls
+  461  history
+  462  history
 
 
 
