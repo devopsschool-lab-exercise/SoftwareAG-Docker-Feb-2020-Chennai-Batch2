@@ -142,9 +142,7 @@ DOCKER NEEDS ROOT OR ANY USER WHO IS PART OF GROUP CALLED "DOCKER"
 ===============
 How to install Docker?
 https://www.devopsschool.com/tutorial/docker/install-config/
-https://www.devopsschool.com/tutorial/docker/install-config/docker-install-
-
-commuityedition-centos-rhel.html
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
 
  22  sudo yum install -y docker-ce
    23  docker -v
@@ -461,3 +459,279 @@ wait	Block until one or more containers stop, then print their exit codes
   168  clear
   169  docker events
   170  history
+
+===============================
+3.6.36.221
+==========================================
+-  Collection of layers.      - DONE
+- Each layer is filesystem    - DONE
+- Layer 0 rootfs                - DONE
+- Each layer identified by UUID - given by SHA256   - DONE
+- Other layers than Layer 0 incremental   - DONE
+- Layer merging is done by UNION MOUNTS - DONE
+- In case of conflict - Top layers wins - PENDIN
+- When you create*** container - ONE EMPTY get created...DIFF LAYER - DONE
+- Container get mounted to MERGED Layers(MNT) DONEs
+                          ---- USER SPACE
+                          --- NET
+                          - PMAP
+                        
+ 11  clear
+   12  docker images
+   13  docker info
+   14  cd /var/lib/docker
+   15  ls
+   16  docker info
+   17  clear
+   18  ls
+   19  cd overlay2/
+   20  ls
+   21  du -sh
+   22  cd ..
+   23  ls
+   24  cd image/
+   25  ls
+   26  df -sh
+   27  du -sh
+   28  clear
+   29  ls
+   30  cd overlay2/
+   31  ls
+   32  cd ..
+   33  sl
+   34  clear
+   35  ls
+   36  ls
+   37  cd ..
+   38  ls
+   39  cd overlay2/
+   40  clear
+   41  ls
+   42  docker pull ubuntu
+   43  ls
+   44  docker inspect ubuntu
+   45  clear
+   46  ls
+   47  tree
+   48  yum install tree -y
+   49  clear
+   50  tree
+   51  c lear
+   52  clear
+   53  du -sh --max-depth=1
+   54  du -h --max-depth=1
+   55  cd ./a5993e21bd82cf7aeb2b7810d915db0d1c21f08b6c30c112899d96d823cd7174
+   56  ls
+   57  cd work/
+   58  ls
+   59  cd ..
+   60  clear
+   61  ls
+   62  cd diff/
+   63  ls
+   64  tree
+   65  cd ..
+   66  ls
+   67  cd ..
+   68  clear
+   69  du -h --max-depth=1
+   70  cd ./138c4bd2fee977e1f14f566c96b34417acc58a25bfe18918447afd1aabbd0d9e
+   71  ls
+   72  clear
+   73  ls
+   74  cd diff/
+   75  ls
+   76  clear
+   77  ls
+   78  cd ..
+   79  ls
+   80  cd ..
+   81  ls
+   82  cd ..
+   83  ls
+   84  cd image/
+   85  clear
+   86  tree
+   87  du -sh
+   88  clear
+   89  cd ..
+   90  ls
+   91  cd containers/n
+   92  cd containers/
+   93  clear
+   94  ls
+   95  cd ..
+   96  ls
+   97  cd overlay2/
+   98  clear
+   99  ls
+  100  docker create ubuntu
+  101  ls
+  102  du -sh bc241728ce3945344b7099f94fd0597961c406b0b642f0e95b20987fa7043164
+  103  du -sh bc241728ce3945344b7099f94fd0597961c406b0b642f0e95b20987fa7043164-init
+  104  clear
+  105  ls
+  106  docker ps -a
+  107  cd  ../containers/
+  108  ls
+  109  du -sh 59ad9d9435515f9166445b36828ec3c6c6dd819ca17fded417d820df681a2e02
+  110  cd ../image/
+  111  clear
+  112  ls
+  113  du -sh overlay2
+  114  cd ../overlay2/
+  115  ls
+  116  du -sh .
+  117  docker ps
+  118  docker ps -a
+  119  docker start 59ad9d943551
+  120  docker ps -a
+  121  du -sh .
+  122  docker ps -a
+  123  docker rm 59ad9d943551
+  124  clear
+  125  ls
+  126  ls ../containers/
+  127  docker run -itd ubuntu
+  128  du -sh
+  129  ls
+  130  du -sh ce3816c344faf1900fe2e2bbcaa23ef391ac155e910812241f4543a15665f58d
+  131  du -sh ce3816c344faf1900fe2e2bbcaa23ef391ac155e910812241f4543a15665f58d-init
+  132  clear
+  133  ls
+  134  docker ps
+  135  cd ../containers/
+  136  du -sh .
+  137  clear
+  138  ls
+  139  ls
+  140  cd ../overlay2/
+  141  ls
+  142  docker ps
+  143  docker inspect 54bdeddf9839
+  144  df -kh
+  145  docker ps
+  146  docker attach 54bdeddf9839
+  147  ls
+  148  cd ..
+  149  ls
+  150  pwd
+  151  find . -name devopsschool.com
+  152  docker ps -a
+  153  docker stop 54bdeddf9839
+  154  find . -name devopsschool.com
+  155  ls
+  156  cd overlay2/
+  157  ls
+  158  du -sh ce3816c344faf1900fe2e2bbcaa23ef391ac155e910812241f4543a15665f58d
+  159  du -sh
+  160  cd ce3816c344faf1900fe2e2bbcaa23ef391ac155e910812241f4543a15665f58d
+  161  ls
+  162  cd ..
+  163  ls
+  164  cd ../containers/
+  165  ls
+  166  docker ps
+  167  docker ps -a
+  168  docker rm 54bdeddf9839
+  169  ls
+  170  cd ../overlay2/
+  171  ls
+  172  ls
+  173  docker images
+  174  docker rmi ubuntu
+  175  ls
+  176  ls
+  177  ls -a
+  178  cd 1
+  179  ls
+  180  more l/
+  181  cd l/
+  182  ls
+  183  cd ..
+  184  ls
+  185  clear
+  186  docker run -itd ubuntu
+  187  docker ps
+  188  docker attach 51bd7a3c5112
+  189  docker ps
+  190  docker stop 51bd7a3c5112
+  191  find . -name rajesh.txt
+  192  docker ps -a
+  193  docker start 51bd7a3c5112
+  194  find . -name rajesh.txt
+  195  history
+
+===================================
+How to create image?
+Lazy way - Wasting time - Manual work - 
+=====================
+Using container
+
+ 195  history
+  196  clear
+  197  docker ps -a
+  198  docker attach 51bd7a3c5112
+  199  docker ps
+  200  docker ps
+  201  docker history ubuntu
+  202  docker commit -a"RajeshKuamr" -m"ub-git" 51bd7a3c5112 ub-git
+  203  docker images
+  204  docker history ubuntu
+  205  docker history ub-git
+  206  docker run -it ub-git
+  207  clear
+  208  docker ps
+  209  docker commit -a"RajeshKuamr" -m"ub-git" cb8f0be7c1f7 ub-git
+  210  docker history ub-git
+  211  docker run -it ub-git
+  212  docker ps
+  213  docker commit -a"RajeshKuamr" -m"ub-git" 612b9447947f ub-git
+  214  docker images
+  215  docker history ub-git
+  216  docker run -it ub-git
+  217  history
+
+
+Intelligent way - Saving time - Full Auto
+========================
+dockerfile
+
+FROM ubuntu
+MAINTAINER rjjesh fsdsff fsd dfs f 
+RUN apt-get update && apt-get install git -y
+
+
+ 219  cd
+  220  ls
+  221  mkdir doc
+  222  cd doc/
+  223  ls
+  224  vi Dockerfile
+  225  docker build -t rajesh .
+  226  ls
+  227  touch softeare.zip
+  228  ls
+  229  vi Dockerfile
+  230  docker build -t rajesh .
+  231  docker run -itd rajesh
+  232  docker ps
+  233  docker exec a8294b964e4a ls /opt
+  234  history
+
+1 15.206.160.168
+2 13.233.142.232
+3 13.235.31.203
+4 13.235.241.182
+5 13.126.123.236
+
+6 13.232.118.250
+7 13.232.208.98
+8 15.206.92.249
+9 13.233.183.19
+10  13.235.113.124
+11  13.233.215.170
+12  13.232.10.41
+13  13.234.20.129
+14  13.235.42.193
+15  13.235.254.212
