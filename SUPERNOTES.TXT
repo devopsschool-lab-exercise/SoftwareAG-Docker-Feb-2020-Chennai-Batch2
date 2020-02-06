@@ -735,3 +735,110 @@ RUN apt-get update && apt-get install git -y
 13  13.234.20.129
 14  13.235.42.193
 15  13.235.254.212
+==================================================
+Jenkins
+    openjdk:8-jdk
+        buildpack-deps:stretch-scm
+            buildpack-deps:stretch-curl
+                debian:stretch
+                      
+
+Dockerfile rule - 
+  - Each line in Dockerfile will create ONE Layer.
+  - Next Layer would be created from a Container of Previous layer.
+
+Task 1 -Study Jenkisn dockerfile
+
+FROM ubuntu
+MAINTAINER rjjesh fsdsff fsd dfs f 
+RUN touch /opt/rajesh1.txt
+RUN touch /opt/rajesh2.txt
+RUN touch /opt/rajesh3.txt
+
+How to share docker images?
+1. Using Tar ball
+9  docker save -o doc2.tar doc2
+  270  ls
+  271  docker ps -a
+  272  docker images
+  273  docker rmi doc2
+  274  clear
+  275  docker images
+  276  ls
+  277  docker load -i doc2.tar
+  278  docker images
+  279  history
+
+2. Using hub.docker
+    1- hub.docker.com
+    2. docker login
+    3. name a image as per repo theree
+    4. push it
+
+ 270  ls
+  271  docker ps -a
+  272  docker images
+  273  docker rmi doc2
+  274  clear
+  275  docker images
+  276  ls
+  277  docker load -i doc2.tar
+  278  docker images
+  279  history
+  280  clar
+  281  docker images
+  282  docker tag doc2 scmgalaxy/sfotwarrr
+  283  clear
+  284  docker images
+  285  docker login
+  286  docker push scmgalaxy/sfotwarrr
+  287  history
+
+3. Using nexus
+
+
+========================================
+CMD vs ENTYPOINT
+========================
+How to run container??
+        PID 1?
+How to set PID 1?
+---------------------
+If pID 1 is running - Container is running.
+
+Mode of Executation....
+---
+EXEC way
+SHELL WAY
+
+ls 
+/bin/ls
+
+echo
+/bin/echo rrr eeeee
+-----------------------------
+CMD 
+    CMD CAN BE REPLACED DURING RUN TIME.
+
+ENTRYPOINT
+    IT WLL NOT BE REPLACED.
+    ARGUMENT PASSERD TO CONtiNAER DUring Run time would be PARAMETER TO A ENTRYPOINT
+
+
+
+LAB - 
+https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
